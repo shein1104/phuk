@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101616">
+  <title>До начала приключения</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./script.js" defer></script>
+</head>
+<body>
+  <div class="backdrop" aria-hidden="true">
+    <video autoplay loop muted playsinline preload="metadata" tabindex="-1">
+      <source src="./assets/background.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="lights" aria-hidden="true">
+    <i></i><i></i><i></i><i></i><i></i>
+  </div>
+
+  <main class="content">
+    <h1 class="intro heading">До начала приключения осталось:</h1>
+    <div class="intro stage">
+      <div class="countdown" role="timer" aria-label="До начала приключения" aria-live="off" hidden>
+        <div class="unit"><span class="value" id="days">00</span><span class="label">Дней</span></div>
+        <span class="separator" aria-hidden="true">:</span>
+        <div class="unit"><span class="value" id="hours">00</span><span class="label">Часов</span></div>
+        <span class="separator" aria-hidden="true">:</span>
+        <div class="unit"><span class="value" id="minutes">00</span><span class="label">Минут</span></div>
+        <span class="separator" aria-hidden="true">:</span>
+        <div class="unit"><span class="value" id="seconds">00</span><span class="label">Секунд</span></div>
+      </div>
+      <p class="arrival" aria-hidden="true">Приключение начинается ❤️</p>
+    </div>
+    <p class="intro caption">Увидимся совсем скоро</p>
+    <p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+    <noscript><p class="no-script">Чтобы увидеть таймер, включите JavaScript.</p></noscript>
+  </main>
+</body>
+</html>
