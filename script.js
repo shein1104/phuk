@@ -1,5 +1,5 @@
-// Измените дату начала здесь. +03:00 — часовой пояс события.
-const targetDate = new Date("2027-06-12T18:00:00+03:00");
+// Измените дату начала здесь. 1 ноября Амстердам использует UTC+01:00.
+const targetDate = new Date("2026-11-01T21:00:00+01:00");
 
 const content = document.querySelector(".content");
 const countdown = document.querySelector(".countdown");
