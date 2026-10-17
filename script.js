@@ -70,3 +70,42 @@ document.addEventListener("visibilitychange", () => {
 });
 reducedMotion.addEventListener("change", syncVideo);
 syncVideo();
+
+const music = document.querySelector("#music");
+const musicToggle = document.querySelector(".music-toggle");
+let musicFinished = false;
+
+music.volume = 0.35;
+
+function updateMusicButton() {
+  musicToggle.hidden = musicFinished || Boolean(music.error);
+  musicToggle.textContent = music.paused ? "Включить музыку" : "Выключить музыку";
+}
+
+async function playMusic() {
+  if (musicFinished || music.ended) return;
+  musicToggle.disabled = true;
+  try {
+    await music.play();
+  } catch {
+    // Если автозапуск заблокирован, музыку можно включить кнопкой.
+  } finally {
+    musicToggle.disabled = false;
+    updateMusicButton();
+  }
+}
+
+musicToggle.addEventListener("click", () => {
+  if (musicFinished || music.ended) return;
+  if (music.paused) playMusic();
+  else music.pause();
+});
+music.addEventListener("play", updateMusicButton);
+music.addEventListener("pause", updateMusicButton);
+music.addEventListener("error", updateMusicButton);
+music.addEventListener("ended", () => {
+  // До перезагрузки страницы трек больше не запускается.
+  musicFinished = true;
+  updateMusicButton();
+});
+playMusic();

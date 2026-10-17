@@ -152,6 +152,24 @@ body { margin: 0; }
 }
 .no-script { font-size: 14px; opacity: .7; }
 
+.music-toggle {
+  position: fixed;
+  right: max(20px, env(safe-area-inset-right));
+  bottom: max(20px, env(safe-area-inset-bottom));
+  z-index: 1;
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 0;
+  border-radius: 4px;
+  background: #10161670;
+  color: #f7f2e9b3;
+  font: 12px/1.4 Arial, sans-serif;
+  letter-spacing: .04em;
+  cursor: pointer;
+}
+.music-toggle:hover { color: #f7f2e9; }
+.music-toggle:focus-visible { outline: 1px solid #f7f2e9; outline-offset: 4px; }
+
 @keyframes reveal {
   from { opacity: 0; transform: translateY(12px); filter: blur(3px); }
   to { opacity: 1; transform: none; filter: blur(0); }
